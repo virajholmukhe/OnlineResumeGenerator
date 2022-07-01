@@ -1,0 +1,30 @@
+{%extends "master.html"%}
+
+{%block content%}
+
+<div class="container mt-5 col-md-6">
+    <div class="card"> 
+        
+        <div class="card-body">
+            <h1>
+                {{Pers}}
+            </h1>
+            <button type="button" class="btn btn-info" style="width:100%"><a style="text-decoration:none;color:black"  href="/educational_Details/{{Pers}}" class="card-link">Educational details</a></button>
+            <br>
+            <br>
+            <button type="button" class="btn btn-info" style="width:100%"><a style="text-decoration:none;color:black"  href="/Certification/{{Pers}}" class="card-link">Certification</a></button>
+            <br>
+            <br>
+            
+            <button type="button" class="btn btn-info" style="width:100%"><a style="text-decoration:none;color:black"  href="/Technical_Skills/{{Pers}}" class="card-link">Technical skills</a></button>
+            <br>
+            <br>
+
+            <button type="button" class="btn btn-info" style="width:100%"><a style="text-decoration:none;color:black"  href="/Academic_Project/{{Pers}}" class="card-link">Academic Project</a></button>
+            <br>
+            <br>
+        </div>
+    </div>
+    </div>
+
+{%endblock%}

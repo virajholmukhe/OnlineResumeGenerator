@@ -1,0 +1,365 @@
+<style>
+    .all{
+        font-size: 12pt;
+        line-height: normal;
+    }
+</style>
+<div class="all"> 
+    <div>
+        <div>
+        <center>
+            <div class="col-md-4">
+                <h3>{{Pers.fullname}}</h3>
+                
+                <div>{{Pers.phone_number}}</div>
+                <div>{{Pers.emailid}}</div>
+                <div>{{Pers.Address}}</div>
+                <div>{{Pers.linkedin}}</div>
+                <div>{{Pers.github}}</div>
+
+            </div>
+        </center>
+
+        <hr width="100%"></hr>
+
+            <table border="0" cellpadding="5" cellspacing="5" >
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 style="color:grey; font-size: 14pt;">Objective:</h3>
+                            </div>
+
+                        </td>
+
+                        <td colspan="4">
+                            <div>
+                                <p>
+                                    {{Pers.objective}}
+                                </p>
+                
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+           <h3 style="color:grey">Educational Details</h3><br>
+
+            <table class="table" border="1" cellpadding="8" cellspacing="8">
+                <thead>
+                    <tr>
+                        <th>
+                            Name of the Examination
+                        </th>
+                        <th>
+                            Institute
+                        </th>
+                        <th>
+                            University/Board
+                        </th>
+                        <th>
+                            Marks (%)
+                        </th>
+                        <th>
+                            Year of Completion
+                        </th>
+
+                    </tr>
+
+                    
+                </thead>
+                <tbody>
+                    {%for e in Ed_d%}
+                    <tr>
+                        <td>
+                            
+                            {{e.nameOfExamination}}
+                        </td>
+
+                        <td>
+                            {{e.institute}}
+                        </td>
+                        <td>
+                            {{e.university}}
+                        </td>
+                        <td>
+                            {{e.percentage}}
+                        </td>
+                        <td>
+                            {{e.yearOfcompletion}}
+                        </td>
+                    </tr>
+                    {%endfor%}
+
+                </tbody>
+            </table>
+
+            <hr width="100%"></hr>
+
+            <table class="table" >
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 style="color:grey">Certification</h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr><td><div>&nbsp;</div></td></tr>
+                    <tr>
+                        <td>
+                            <div>
+                                
+                                <ul type="disc">
+                                    {%for c in certi %}
+                                    <li>
+                                    {{c.certification}}
+                                    </li>
+                                    {%endfor%}
+                                <ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <hr width="100%"></hr>
+
+            <table class="table" >
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 style="color:grey">Technical Skills</h3>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <p>
+                                    {%for t in Tec_Skill%}
+                                    {{t.skills}},
+                                    {%endfor%}
+                                </p>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <hr width="100%"></hr>
+
+            <table class="table" >
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 style="color:grey">Academic Projects</h3>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <ol type="1">
+                                    {%for a in acd_p %}
+                                    <li>
+                                        <h4> Project Title: {{a.project_title}}</h4>
+                                
+                                <table class="project_details">
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Project Name:</p>
+                                                </div>
+                    
+                                            </td>
+                    
+                                            <td>
+                                                <div>
+                                                    <p>
+                                                        {{a.project_name}}  
+                                                    </p>
+                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Technologies Used:</p>
+                                                </div>
+                    
+                                            </td>
+                    
+                                            <td>
+                                                <div>
+                                                    <p>
+                                                        {{a.technologies_used}}
+                                                    </p>
+                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                   <p>Description:</p>
+                                                </div>
+                    
+                                            </td>
+                    
+                                            <td>
+                                                <div>
+                                                    <p>
+                                                        {{a.description}}
+                                                    </p>
+                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+
+                            </li>
+                            {%endfor%}
+                        </ol>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color:grey">Personal Information</h3>
+                
+                <table class="personal_information">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <p>Gender: </p>
+                                </div>
+    
+                            </td>
+    
+                            <td>
+                                <div>
+                                    <p>
+                                        {{Pers.Gender}}
+                                    </p>
+                    
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>
+                                    <p>Date of Birth: </p>
+                                </div>
+    
+                            </td>
+    
+                            <td>
+                                <div>
+                                    <p>
+                                        {{Pers.dob}}
+                                    </p>
+                    
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>
+                                   <p>Hobbies: </p>
+                                </div>
+    
+                            </td>
+    
+                            <td>
+                                <div>
+                                    <p>
+                                        {{Pers.hobbies}}
+                                    </p>
+                    
+                                </div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>
+                                <div>
+                                   <p>Languages Known: </p>
+                                </div>
+    
+                            </td>
+    
+                            <td>
+                                <div>
+                                    <p>
+                                        {{Pers.languages_known}}
+                                    </p>
+                    
+                                </div>
+                            </td>
+                        </tr>
+                    
+
+                    </tbody>
+                </table>
+
+            <hr width="100%"></hr>
+
+            <table class="self_declaration" >
+                <tbody>
+                    <tr>
+                        <td colspan="12">
+                            <div>
+                                <h3 style="color:grey">Self Declartion: </h3>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td colspan="12">
+                            <div>
+                                <p>
+                                    I hereby declare that all the information that I have furnished is true to the best of my knowledge.
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                        <td colspan="10">
+                            Date:
+                        </td>
+
+                        <td >
+                            sign:
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Place:
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

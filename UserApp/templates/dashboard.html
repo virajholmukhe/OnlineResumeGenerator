@@ -1,0 +1,181 @@
+{%extends "master.html"%}
+
+{%block content%}
+<style>
+    body{
+        background:none;
+    }
+    .one{
+        background-color: #f8f9fa;
+    }
+</style>
+<div class="container mt-5 col-md-6">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashborad</li>
+        </ol>
+    </nav>
+</div>
+<section class="one">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Modify/Create New Resume Template</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+<section class="one" id="personal_information">
+    <div class="container mt-5">
+
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Personal Information</h4>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black"  href="/save" >Save Resume</a></button>
+                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black"  href="/publish" >Publish Resume</a></button>
+                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black" target="_blank" href="/pdf" >Generate PDF</a></button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card mb-3" style="padding: 20px 10px 20px 10px; width: 100%;">
+            <center>
+                <h1 class="card-title text-center">{{pi.fullname}}</h1>
+                <p>{{pi.phone_number}}</p>
+                <p>{{pi.emailid}}</p>
+                <p>{{pi.Address}}</p>
+                <p>{{pi.linkedin}}</p>
+                <p>{{pi.github}}</p>
+            </center>
+            <hr width="100%"></hr>
+                <h5>Objective: </h5><p>{{pi.objective}}</p>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light" id="educational_details">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;" >
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Educational Details</h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for e in ei %}
+            <div class="col-md-6">
+                <div class="card mb-3" style="padding: 20px 10px 20px 10px;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <center>
+                            <h5 style="margin-bottom: 5px;">{{e.nameOfExamination}} <button type="submit" name="action" value="delete_educational_detail" class="btn-close justify-content-end" style="margin-left: 40px;" aria-label="Close"></button></h5>
+                            <input type="hidden" name="id" value="{{e.id}}">
+                        </center>
+                    </form>
+                    <p>Institute: {{e.institute}}</p>
+                    <p>University/Board: {{e.university}}</p>
+                    <p>Percentage/CGPA: {{e.percentage}}</p>
+                    <p>Passing Year: {{e.yearOfcompletion}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+    <center>
+        <button type="button" class="btn btn-info"><a style="text-decoration:none;color:black"  href="/educational_Details/{{pi.id}}" class="card-link">Add New Details</a></button>
+    </center>
+</section>
+
+<section class="one" id="certification_details">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Certification Details</h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for c in ci %}
+            <div class="col-md-3">
+                <div class="card mb-3" style="padding: 10px 5px 5px 5px;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <center>
+                            <h5>{{c.certification}} <button type="submit" name="action" value="delete_certification_detail" class="btn-close justify-content-end" style="margin-left: 40px;" aria-label="Close"></button></h5>
+                            <input type="hidden" name="id" value="{{c.id}}">
+                        </center>     
+                    </form>
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+        <center>
+            <button type="button" class="btn btn-info"><a style="text-decoration:none;color:black"  href="/Certification/{{pi.id}}" class="card-link">Add New Certification</a></button>
+        </center>
+    </div>
+</section>
+
+<section class="bg-light" id="technical_skills">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Technical Skills</h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for t in ti %}
+            <div class="col-md-2">
+                <div class="card mb-3" style="padding: 10px 5px 5px 5px;">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <center>
+                            <h5>{{t.skills}} <button type="submit" name="action" value="delete_technical_skill" class="btn-close justify-content-end" style="margin-left: 40px;" aria-label="Close"></button></h5>
+                            <input type="hidden" name="id" value="{{t.id}}">
+                        </center>     
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <center>
+            <button type="button" class="btn btn-info" ><a style="text-decoration:none;color:black"  href="/Technical_Skills/{{pi.id}}" class="card-link">Add New Technical skill</a></button>
+        </center>
+    </div>
+</section>
+
+<section class="one" id="academic_project_details">
+    <div class="container mt-5 mb-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Academic Project Details</h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for a in ai %}
+            <div class="col-md-4">
+                <div class="card mb-3" style="padding: 20px 10px 20px 10px;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <center>
+                            <h5>{{a.project_name}} <button type="submit" name="action" value="delete_academic_project_detail" class="btn-close justify-content-end" style="margin-left: 40px;" aria-label="Close"></button></h5>
+                            <input type="hidden" name="id" value="{{a.id}}">
+                        </center>
+                    </form>
+                        <p>Project Title: {{a.project_title}}</p>
+                        <p>Technologies Used: {{a.technologies_used}}</p>
+                        <p>Description: {{a.description}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <center>
+            <button type="button" class="btn btn-info"><a style="text-decoration:none;color:black"  href="/Academic_Project/{{pi.id}}" class="card-link">Add New Project</a></button>
+        </center>
+    </div>
+</section>
+
+
+
+{%endblock%}

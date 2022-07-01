@@ -1,0 +1,54 @@
+{%extends "master.html"%}
+
+{%block content%}
+<div class="container mt-5 col-md-6">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Academic Project Details</li>
+      </ol>
+  </nav>
+</div>
+
+<div class="container mt-5 mb-5 col-md-6">
+    <div class="card"> 
+        
+        <div class="card-body">
+
+          <button type="button" class="btn btn-info" style="width:100%">Academic_Projec</button>
+
+          <form method="post">
+            {%csrf_token%}
+
+            <div class="mb-3 mt-3">
+              <label for="project_title" class="form-label">project_title </label>
+              <input type="text" class="form-control" placeholder="" name="project_title">
+            </div>
+
+            <div class="mb-3 mt-3">
+              <label for="project_name" class="form-label">project_name </label>
+              <input type="text" class="form-control" placeholder="" name="project_name">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="technologies_used" class="form-label">technologies_used </label>
+                <input type="text" class="form-control" placeholder="" name="technologies_used">
+              </div>
+
+              
+            <div class="mb-3 mt-3">
+                <label for="description" class="form-label">description </label>
+                <textarea class="form-control"  rows="3"  placeholder="" name="description"></textarea>
+              </div>
+  
+
+            </div  class="mb-3 mt-3">
+            <button type="submit" class="btn btn-info" style="width: 100%">Submit</button>
+        </form>
+
+        </div>
+    </div>
+    </div>
+
+{%endblock%}

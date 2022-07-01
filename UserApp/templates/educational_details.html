@@ -1,0 +1,57 @@
+{%extends "master.html"%}
+
+{%block content%}
+<div class="container mt-5 col-md-6">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Educational Details</li>
+      </ol>
+  </nav>
+</div>
+
+<div class="container mt-5 mb-5 col-md-6">
+    <div class="card"> 
+        
+        <div class="card-body">
+
+          <button type="button" class="btn btn-info" style="width:100%">Educational Details</button>
+
+          <form method="post">
+            {%csrf_token%}
+            <div class="mb-3 mt-3">
+              <label for="nameOfExamination" class="form-label">Name Of Examination</label>
+              <input type="text" class="form-control" placeholder="" name="nameOfExamination">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="institute" class="form-label">Institute</label>
+                <input type="text" class="form-control" placeholder="" name="institute">
+              </div>
+
+              <div class="mb-3 mt-3">
+                <label for="university" class="form-label">University</label>
+                <input type="text" class="form-control" placeholder="" name="university">
+              </div>
+
+              <div class="mb-3 mt-3">
+                <label for="percentage" class="form-label">Percentage</label>
+                <input type="text" class="form-control" placeholder="" name="percentage">
+              </div>
+
+              <div class="mb-3 mt-3">
+                <label for="yearOfcompletion" class="form-label">Year Of Completion</label>
+                <input type="number" class="form-control" placeholder="" name="yearOfcompletion">
+              </div>
+
+        </div  class="mb-3 mt-3">
+        <button type="submit" class="btn btn-info" style="width: 100%">Submit</button>
+      </form>
+
+
+        </div>
+    </div>
+    </div>
+
+{%endblock%}

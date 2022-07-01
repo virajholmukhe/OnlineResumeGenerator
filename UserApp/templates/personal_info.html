@@ -1,0 +1,85 @@
+{%extends "master.html"%}
+
+{%block content%}
+
+<div class="container mt-5 mb-5 col-md-6">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/dashboard">Dashborad</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Personal Information</li>
+    </ol>
+</nav>
+    <div class="card"> 
+        
+        <div class="card-body">
+
+          <button type="button" class="btn btn-info" style="width:100%">Personal Information</button>
+
+            <form method="post">
+                {%csrf_token%}
+                <div class="mb-3 mt-3">
+                  <label for="fullname" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Prachiti Pravin Thakur" name="fullname">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="phone_number" class="form-label">Phone Number</label>
+                  <input type="number" class="form-control" placeholder="1234569870" name="phone_number">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="Gender" class="form-label">Gender</label>
+                  <input type="text" class="form-control" placeholder="female" name="Gender">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="dob" class="form-label">Date of Birth</label>
+                  <input type="date" class="form-control" placeholder="" name="dob">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="emailid" class="form-label">Emailid</label>
+                  <input type="email" class="form-control" placeholder="abc@gmail.com" name="emailid">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="Address" class="form-label">Address</label>
+                  <textarea class="form-control"  rows="3"   name="Address" placeholder="A-wing 201 Megh appartment,prabhat colony ,mahad,pin 420301" name="addressAddress"></textarea>
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="hobbies" class="form-label">Hobbies</label>
+                  <input type="text" class="form-control" placeholder="Drawing,painting" name="hobbies">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="languages_known" class="form-label">languages_known</label>
+                  <input type="text" class="form-control" placeholder="English,Marathi,Hindi" name="languages_known">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="linkedin" class="form-label">linkedin profile link</label>
+                  <input type="text" class="form-control" placeholder="" name="linkedin">
+                </div>
+
+                <div class="mb-3 mt-3">
+                  <label for="github" class="form-label">github profile link</label>
+                  <input type="text" class="form-control" placeholder="" name="github">
+                </div>
+
+                <div  class="mb-3 mt-3">
+                  <label for="objective" class="form-label">Objective</label>
+                  <textarea class="form-control"  rows="3"  placeholder="" name="objective"></textarea>
+                </div>
+
+
+                </div  class="mb-3 mt-3">
+                <button type="submit" class="btn btn-info" style="width: 100%">Submit</button>
+              </form>
+        </div>
+    </div>
+    </div>
+
+{%endblock%}
+
