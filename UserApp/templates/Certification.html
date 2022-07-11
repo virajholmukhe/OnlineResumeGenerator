@@ -5,7 +5,8 @@
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="/my_resumes">My Resumes</a></li>
+          <li class="breadcrumb-item"><a href="/dashboard/{{Pers}}">Dashboard</a></li>
           <li class="breadcrumb-item active" aria-current="page">Certification Details</li>
       </ol>
   </nav>
@@ -23,12 +24,12 @@
 
             <div class="mb-3 mt-3">
               <label for="certification" class="form-label">Certification </label>
-              <input type="text" class="form-control" placeholder="" name="certification">
+              <input type="text" class="form-control" placeholder="" name="certification" required>
             </div>
 
 
             </div  class="mb-3 mt-3">
-            <button type="submit" class="btn btn-info" style="width: 100%">Submit</button>
+            <button type="submit" class="btn btn-info mb-5" style="width: 80%; margin-left: 10%;">Submit</button>
         </form>
 
 

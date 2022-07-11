@@ -5,7 +5,8 @@
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="/my_resumes">My Resumes</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard/{{Pers}}">Dashboard</a></li>
           <li class="breadcrumb-item active" aria-current="page">Educational Details</li>
       </ol>
   </nav>
@@ -22,31 +23,31 @@
             {%csrf_token%}
             <div class="mb-3 mt-3">
               <label for="nameOfExamination" class="form-label">Name Of Examination</label>
-              <input type="text" class="form-control" placeholder="" name="nameOfExamination">
+              <input type="text" class="form-control" placeholder="" name="nameOfExamination" required>
             </div>
 
             <div class="mb-3 mt-3">
                 <label for="institute" class="form-label">Institute</label>
-                <input type="text" class="form-control" placeholder="" name="institute">
+                <input type="text" class="form-control" placeholder="" name="institute" required>
               </div>
 
               <div class="mb-3 mt-3">
                 <label for="university" class="form-label">University</label>
-                <input type="text" class="form-control" placeholder="" name="university">
+                <input type="text" class="form-control" placeholder="" name="university" required>
               </div>
 
               <div class="mb-3 mt-3">
                 <label for="percentage" class="form-label">Percentage</label>
-                <input type="text" class="form-control" placeholder="" name="percentage">
+                <input type="text" class="form-control" placeholder="" name="percentage" required>
               </div>
 
               <div class="mb-3 mt-3">
                 <label for="yearOfcompletion" class="form-label">Year Of Completion</label>
-                <input type="number" class="form-control" placeholder="" name="yearOfcompletion">
+                <input type="number" class="form-control" placeholder="" name="yearOfcompletion" required>
               </div>
 
         </div  class="mb-3 mt-3">
-        <button type="submit" class="btn btn-info" style="width: 100%">Submit</button>
+        <button type="submit" class="btn btn-info mb-5" style="width: 80%; margin-left: 10%;">Submit</button>
       </form>
 
 

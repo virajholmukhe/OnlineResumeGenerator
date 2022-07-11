@@ -25,12 +25,10 @@ class personal_info(models.Model):
     class Meta:
         db_table="personal_info"
     
-class my_resumes(models.Model):
+class published_resumes(models.Model):
     user = models.ForeignKey(User_Info, on_delete=models.CASCADE)
     person_info = models.ForeignKey(personal_info, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resumes')
-    
-    
     class Meta:
         db_table="my_resumes"
     

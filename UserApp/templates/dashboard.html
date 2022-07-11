@@ -13,20 +13,11 @@
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/my_resumes">My Resumes</a></li>
             <li class="breadcrumb-item active" aria-current="page">Dashborad</li>
         </ol>
     </nav>
 </div>
-<section class="one">
-    <div class="container mt-5">
-        <div class="card border-success mb-3" style="width: 100%;">
-            <div class="card-body text-success">
-                <h4 class="card-title text-center">Modify/Create New Resume Template</h4>
-            </div>
-        </div>
-    </div>
-</section>
-<hr>
 <section class="one" id="personal_information">
     <div class="container mt-5">
 
@@ -34,9 +25,8 @@
             <div class="card-body text-success">
                 <h4 class="card-title text-center">Personal Information</h4>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black"  href="/save" >Save Resume</a></button>
-                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black"  href="/publish" >Publish Resume</a></button>
-                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black" target="_blank" href="/pdf" >Generate PDF</a></button>
+                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black"  href="/save/{{pi.id}}" >Save Resume</a></button>
+                    <button type="button" class="btn btn-outline-warning justify-content-end"><a style="text-decoration:none;color:black" target="_blank" href="/pdf/{{pi.id}}" >Generate PDF</a></button>
                 </div>
                 
             </div>

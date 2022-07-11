@@ -1,0 +1,81 @@
+{%extends "master.html"%}
+
+{%block content%}
+<style>
+    body{
+        background:none;
+    }
+    .one{
+        background-color: #f8f9fa;
+    }
+</style>
+<div class="container mt-5 col-md-6">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My Resumes</li>
+        </ol>
+    </nav>
+</div>
+<section class="one">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h5 class="card-title text-center">Want to Create New resume template? </h5>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a style="text-decoration:none;color:black"  href="/personal_info" ><button type="button" class="btn btn-outline-warning justify-content-end color:black" style="color:black">Click Here</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+
+{% if pi %}
+<section class="one" id="certification_details">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">Resume Details</h4>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Personal Profile ID</th>
+                    <th scope="col">Personal Profile Name</th>
+                    <th scope="col">Dashboard</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for p in pi %}
+                  <tr>
+                    <th scope="row">{{p.id}}</th>
+                    <td>{{p.fullname}}</td>
+                    <td><a href="/dashboard/{{p.id}}">View</a></td>
+                    <td><a href="/delete_resume/{{p.id}}">Delete</a> - <a href="/pdf/{{p.id}}">View PDF</a></td>
+                    <td></td>
+                  </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="one">
+    <div class="container mt-5">
+        <div class="card border-success mb-3" style="width: 100%;">
+            <div class="card-body text-success">
+                <h4 class="card-title text-center">You dont have any Data. Please Fill Personal information fisrt!</h4>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+
+{%endblock%}
